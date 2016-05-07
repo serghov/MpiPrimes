@@ -77,18 +77,21 @@ int main(int argc, char** argv) {
     	for (i=1;i<world_size;i++)
     	{
     		MPI_Recv(&recvSize, 1, MPI_INT, i, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-    		cout <<"Recieved "<<recvSize<<" primes\nretirieving"<<endl;
+    		cout <<"Recieved "<<recvSize<<" primes\nretrieving"<<endl;
     		recvPrimes = new int[recvSize];
     		MPI_Recv(recvPrimes, recvSize, MPI_INT, i, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 			for (int j=0;j<recvSize;j++)    	
     			allPrimes.push_back(recvPrimes[i]);
     		delete recvPrimes;
     	}
+
+    	cout <<"overal "<<allPrimes.size()<<" primes"<<endl;
+    	//for(i=0;i<allPrimes.size();i++)
+	    //	printf("%d ", allPrimes[i]);
+    	//cout <<endl;
     }
 
-    //for(i=0;i<allPrimes.size();i++)
-    //	printf("%d ", allPrimes[i]);
-    //cout <<endl;
+    
 
     MPI_Finalize();
     return 0;
