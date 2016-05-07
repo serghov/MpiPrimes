@@ -81,14 +81,16 @@ int main(int argc, char** argv) {
     		recvPrimes = new int[recvSize];
     		MPI_Recv(recvPrimes, recvSize, MPI_INT, i, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 			for (int j=0;j<recvSize;j++)    	
-    			allPrimes.push_back(recvPrimes[i]);
+    			allPrimes.push_back(recvPrimes[j]);
     		delete recvPrimes;
     	}
 
     	cout <<"overal "<<allPrimes.size()<<" primes"<<endl;
-    	//for(i=0;i<allPrimes.size();i++)
-	    //	printf("%d ", allPrimes[i]);
-    	//cout <<endl;
+    	freopen("primes.txt","w",stdout);
+
+    	for(i=0;i<allPrimes.size();i++)
+	    	printf("%d ", allPrimes[i]);
+    	printf("\n");
     }
 
     
