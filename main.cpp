@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
 			delete recvPrimes;
 		}
 		
-		cout <<"overal "<<allPrimes.size()<<" primes"<<endl;
+		cout <<"overall "<<allPrimes.size()<<" primes"<<endl;
 		//output all primes to a file
 		freopen("primes.txt","w",stdout);
 
